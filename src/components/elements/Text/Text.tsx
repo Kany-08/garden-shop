@@ -27,6 +27,8 @@ export const Text = ({
   align = "left",
   weight = "regular",
   truncate = false,
+  crossedOut = false,
+  className,
   children,
 }: TextProps): JSX.Element => {
   const Component = StyledText.withComponent(getHtmlTag(variant));
@@ -38,6 +40,8 @@ export const Text = ({
       $align={align}
       $weight={weight}
       $truncate={truncate}
+      $crossedOut={crossedOut}
+      className={className}
     >
       {children}
     </Component>

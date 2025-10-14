@@ -5,14 +5,14 @@ import type { SelectProps } from "./Select.types";
 
 export const SelectContainer = styled.div`
   position: relative;
-  max-width: 200px;
+  width: 200px;
 `;
 
-export const SelectTrigger = styled.button<Pick<SelectProps, "isOpen">>`
+export const SelectDropdown = styled.button<Pick<SelectProps, "isOpen">>`
   width: 100%;
   padding: ${theme.sizes.spacing.xsm} ${theme.sizes.spacing.default};
   background-color: ${theme.colors.white};
-  border: 2px solid ${theme.colors.greyDivider};
+  border: 1px solid ${theme.colors.greyDivider};
   border-radius: ${theme.sizes.radius.medium};
   font-family: "${theme.fonts.family}", sans-serif;
   font-size: ${theme.fonts.size.default};
@@ -40,7 +40,7 @@ export const SelectText = styled.span`
   text-align: left;
 `;
 
-export const IconWrapper = styled.span<{ isOpen: boolean }>`
+export const IconWrapper = styled.span<Pick<SelectProps, "isOpen">>`
   display: flex;
   align-items: center;
   transition: transform 0.2s ease;
@@ -57,7 +57,7 @@ export const OptionList = styled.ul<Pick<SelectProps, "isOpen">>`
   top: 100%;
   left: 0;
   right: 0;
-  background-color: ${theme.colors.white};
+  background-color: ${theme.colors.bgWhite};
 
   border-radius: ${theme.sizes.radius.medium};
   list-style: none;

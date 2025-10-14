@@ -3,9 +3,6 @@ import { css } from "@emotion/react";
 import type { IconProps } from "./Icon.types";
 
 export const StyledIconWrapper = styled.span<IconProps>`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
 
   svg {
@@ -33,19 +30,46 @@ export const StyledIconWrapper = styled.span<IconProps>`
     css`
       width: 44px;
       height: 44px;
+
+      @media (max-width: 480px) {
+        width: 32px;
+        height: 32px;
+      }
+    `}
+
+    ${({ size }) =>
+    size === "social" &&
+    css`
+      width: 44px;
+      height: 44px;
     `}
 
   ${({ size }) =>
     size === "semiMedium" &&
     css`
-      width: clamp(32px, 4vw, 48px);
-      height: clamp(32px, 4vw, 48px);
+      width: 48px;
+      height: 48px;
+
+      @media (max-width: 1000px) {
+        width: 44px;
+        height: 44px;
+      }
+
+      @media (max-width: 480px) {
+        width: 32px;
+        height: 32px;
+      }
     `}
 
     ${({ size }) =>
     size === "large" &&
     css`
-      width: clamp(53px, 4vw, 60px);
-      height: clamp(28px, 4vw, 32px);
+      width: 60px;
+      height: 32px;
+
+      @media (max-width: 768px) {
+        width: 52.5px;
+        height: 28px;
+      }
     `}
 `;

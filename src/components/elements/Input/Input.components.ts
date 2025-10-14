@@ -12,17 +12,17 @@ export const StyledInput = styled.input<InputProps>`
   border-radius: ${theme.sizes.radius.sm};
 
   /* opacity: 0; */
-  cursor: pointer;
 
   &::placeholder {
     color: ${theme.colors.grey};
+    font-size: ${theme.fonts.size.default};
   }
 
   /* Variants */
   ${({ variant }) =>
     variant === "primary" &&
     css`
-      background-color: ${theme.colors.bgWhite};
+      background-color: ${theme.colors.white};
       border: 1px solid ${theme.colors.greyDivider};
     `}
 
@@ -32,7 +32,8 @@ export const StyledInput = styled.input<InputProps>`
       border: 1px solid ${theme.colors.bgWhite};
 
       &::placeholder {
-        color: ${theme.colors.white};
+        color: ${theme.colors.grey};
+        font-size: ${theme.fonts.size.default};
       }
     `}
 
@@ -54,7 +55,8 @@ export const StyledInput = styled.input<InputProps>`
   ${({ inputSize }) =>
     inputSize === "medium" &&
     css`
-      padding: ${theme.sizes.spacing.xsm} ${theme.sizes.spacing.default};
+      width: 112px;
+      height: 36px;
     `}
 
   ${({ inputSize }) =>

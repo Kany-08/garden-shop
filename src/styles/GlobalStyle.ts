@@ -11,7 +11,9 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: ${theme.fonts.family};;
     color: ${theme.colors.black};
-    line-height: 1.5;
+    /* line-height: 1.5; */
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
   button {
@@ -21,5 +23,18 @@ export const GlobalStyle = createGlobalStyle`
   cursor: pointer;
   padding: 0;
   text-decoration: none;
+  }
+
+  .app {
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding-bottom: 80px;
+
+    @media (max-width: 1000px) {
+      padding: 0 20px;
+    }
   }
 `;

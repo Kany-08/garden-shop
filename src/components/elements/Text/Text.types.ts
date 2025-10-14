@@ -26,5 +26,7 @@ export interface TextProps {
   align?: Align;
   weight?: Weight;
   truncate?: boolean;
+  crossedOut?: boolean;
   children: React.ReactNode;
+  className?: string;
 }

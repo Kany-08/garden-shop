@@ -1,7 +1,7 @@
 // basket > card
 import BasketEmpty from "../../../assets/icons/basket/basket=card=empty.svg?react";
-import BasketHover from "../../../assets/icons/basket/basket=card=empty.svg?react";
-import BasketFull from "../../../assets/icons/basket/basket=card=empty.svg?react";
+import BasketHover from "../../../assets/icons/basket/basket=card=hover.svg?react";
+import BasketFull from "../../../assets/icons/basket/basket=card=full.svg?react";
 
 //basket heart > card
 import HeartEmpty from "../../../assets/icons/heart/basket=heart=empty.svg?react";
@@ -53,11 +53,18 @@ export const iconMap = {
   arrowDown: ArrowDown,
 } as const;
 
-export type IconType = keyof typeof iconMap;
-export type IconSize = "xsm" | "small" | "medium" | "semiMedium" | "large";
+export type IconName = keyof typeof iconMap;
+export type IconSize =
+  | "xsm"
+  | "small"
+  | "medium"
+  | "semiMedium"
+  | "large"
+  | "social";
 
 export interface IconProps extends React.SVGProps<SVGSVGElement> {
-  name: IconType;
+  name: IconName;
   size?: IconSize;
-  onClick?: () => void;
+  togglePair?: [IconName, IconName];
+  hoverIcon?: IconName;
 }

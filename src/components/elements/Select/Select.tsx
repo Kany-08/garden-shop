@@ -5,7 +5,7 @@ import {
   OptionList,
   SelectContainer,
   SelectText,
-  SelectTrigger,
+  SelectDropdown,
 } from "./Select.components";
 import type { SelectProps } from "./Select.types";
 import { useEffect, useRef, useState, type JSX } from "react";
@@ -30,12 +30,10 @@ const Select = ({
 
     if (isOpenState) {
       document.addEventListener("mousedown", handleClickOutside);
-      console.log("Поставили прослушку");
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      console.log("Убрали прослушку");
     };
   }, [isOpenState]);
 
@@ -50,7 +48,7 @@ const Select = ({
 
   return (
     <SelectContainer ref={selectRef}>
-      <SelectTrigger
+      <SelectDropdown
         type="button"
         isOpen={isOpenState}
         onClick={toggleDropdown}
@@ -64,7 +62,7 @@ const Select = ({
         <IconWrapper isOpen={isOpenState}>
           <Icon name="arrowDown" size="xsm" />
         </IconWrapper>
-      </SelectTrigger>
+      </SelectDropdown>
 
       <OptionList isOpen={isOpenState} role="listbox">
         {options.map((option) => (

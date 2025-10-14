@@ -50,10 +50,10 @@ export const theme = {
       lg: "1.25rem", // 20px
       xl: "1.5rem", // 24 px
       title: {
-        primary: "6rem", // 96
-        secondary: "4rem", // 64
-        normal: "2.5rem", // 40
-        small: "1.25rem", // 20
+        primary: "font-size: clamp(3.25rem, 2.3333rem + 4.0741vw, 6rem);", // 96
+        secondary: "clamp(2.5rem, 2rem + 2.2222vw, 4rem)", // 64
+        normal: "clamp(1.75rem, 1.5rem + 1.1111vw, 2.5rem)", // 40
+        small: "clamp(1.125rem, 1.0833rem + 0.1852vw, 1.25rem)", // 20
       },
       button: {
         default: "1.25rem",

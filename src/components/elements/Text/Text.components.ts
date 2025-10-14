@@ -8,6 +8,7 @@ interface StyledTextProps {
   $align: Align;
   $weight: Weight;
   $truncate: boolean;
+  $crossedOut?: boolean;
 }
 
 const getVariantStyles = (variant: Variant) => {
@@ -88,7 +89,21 @@ const getWeightStyles = (weight: Weight) => {
   return weightMap[weight];
 };
 
+const getAlignStyles = (align: Align) => {
+  const alignMap = {
+    left: "left",
+    center: "center",
+    right: "right",
+    justify: "justify",
+  };
+  return alignMap[align];
+};
+
 export const StyledText = styled.span<StyledTextProps>`
+  margin: 0;
+  padding: 0;
+  display: inline;
+
   ${({ $variant }) => {
     const styles = getVariantStyles($variant);
     return `
@@ -100,7 +115,7 @@ export const StyledText = styled.span<StyledTextProps>`
 
   font-weight: ${({ $weight }) => getWeightStyles($weight)};
 
-  text-align: ${({ $align }) => $align};
+  text-align: ${({ $align }) => getAlignStyles($align)};
 
   ${({ $weight, $variant }) => {
     const variantWeight = getVariantStyles($variant).fontWeight;
@@ -114,5 +129,12 @@ export const StyledText = styled.span<StyledTextProps>`
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  `}
+
+  ${({ $crossedOut }) =>
+    $crossedOut &&
+    `
+    text-decoration: line-through;
+    color: ${theme.colors.grey};
   `}
 `;

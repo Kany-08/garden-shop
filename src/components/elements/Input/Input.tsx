@@ -8,6 +8,8 @@ export const Input = ({
   type = "text",
   hasError,
   fullWidth,
+  value,
+  placeholder,
   ...rest
 }: InputProps): JSX.Element => {
   return (
@@ -15,6 +17,7 @@ export const Input = ({
       variant={variant}
       inputSize={inputSize}
       type={type}
+      placeholder={placeholder}
       {...rest}
     />
   );
