@@ -1,18 +1,13 @@
-export interface ProductCardProps {
-  id?: string;
+export type ProductCardProps = {
+  id: number;
   title: string;
+  key: number;
   description?: string;
   price: number;
-  salePrice?: number;
-  salePercent?: number;
-  oldPrice?: number;
-  imageUrl: string;
-  isNew?: boolean;
-  isOnSale?: boolean;
-  isFavorite?: boolean;
-  onAddToCart?: (productId: number) => void;
-  onViewDetails?: (productId: string) => void;
-  onToggleFavorite?: (productId: string) => void;
+  discont_price?: number | null;
+  categoryId: number;
+  image: string;
   children?: React.ReactNode;
+  discount?: number;
   className?: string;
-}
+};

@@ -6,6 +6,11 @@ import type { SelectProps } from "./Select.types";
 export const SelectContainer = styled.div`
   position: relative;
   width: 200px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px ${theme.colors.lightGrey};
+  }
 `;
 
 export const SelectDropdown = styled.button<Pick<SelectProps, "isOpen">>`

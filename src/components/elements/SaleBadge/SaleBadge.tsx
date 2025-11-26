@@ -1,9 +1,12 @@
 import { type JSX } from "react";
 import { StyledSaleBadge } from "./SaleBadge.components";
-import type { SaleBadgeProps } from "./SaleBadge.types";
 
-const SaleBadge = ({ children }: SaleBadgeProps): JSX.Element => {
-  return <StyledSaleBadge>{children}</StyledSaleBadge>;
+import { useSalePercentageContext } from "../../../context/SalePercentageContext";
+
+const SaleBadge = (): JSX.Element => {
+  const { percentage } = useSalePercentageContext();
+
+  return <StyledSaleBadge>-{percentage}%</StyledSaleBadge>;
 };
 
 export default SaleBadge;

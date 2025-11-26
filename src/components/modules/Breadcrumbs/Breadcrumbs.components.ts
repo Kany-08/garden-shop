@@ -3,9 +3,12 @@ import styled from "@emotion/styled";
 import { theme } from "../../../styles/theme";
 import { Breadcrumbs } from "@mui/material";
 
-export const StyledBreadcrumbsContainer = styled.div``;
+export const StyledBreadcrumbsContainer = styled.div`
+  margin-bottom: 2.5em;
+`;
 
-export const StyledBreadcrumbs = styled(Breadcrumbs)`
+export const StyledBreadcrumbs = styled(Breadcrumbs)<{ isdark: boolean }>`
+  margin: 2.5em 2.5em 0;
   .MuiBreadcrumbs-li {
     /* width: 118px;
     height: 36px;
@@ -18,7 +21,7 @@ export const StyledBreadcrumbs = styled(Breadcrumbs)`
     border: 1px solid ${theme.colors.greyDivider};
     border-radius: ${theme.sizes.radius.sm};
     padding: 8px 16px;
-    background-color: ${theme.colors.white};
+
     color: ${theme.colors.grey};
   }
 
@@ -32,5 +35,20 @@ export const StyledBreadcrumbs = styled(Breadcrumbs)`
 
   .MuiTypography-root {
     color: ${theme.colors.grey};
+  }
+
+  a {
+    text-decoration: none;
+    color: ${theme.colors.grey};
+
+    &.active {
+      color: ${theme.colors.black};
+
+      ${({ isdark }) =>
+        isdark &&
+        `
+        color: ${theme.colors.white};
+      `}
+    }
   }
 `;

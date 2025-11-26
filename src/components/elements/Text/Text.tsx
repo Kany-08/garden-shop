@@ -11,9 +11,9 @@ const getHtmlTag = (variant: TextProps["variant"]) => {
     dicount20: "span",
     body16: "p",
     price40: "span",
-    price64: "span",
+    price64: "p",
     oldPrice20: "span",
-    oldPrice40: "span",
+    oldPrice40: "p",
     navLinkText16: "a",
     navLinkText20: "a",
   } as const;
@@ -30,6 +30,7 @@ export const Text = ({
   crossedOut = false,
   className,
   children,
+  nowrap = false,
 }: TextProps): JSX.Element => {
   const Component = StyledText.withComponent(getHtmlTag(variant));
 
@@ -41,6 +42,7 @@ export const Text = ({
       $weight={weight}
       $truncate={truncate}
       $crossedOut={crossedOut}
+      $nowrap={nowrap}
       className={className}
     >
       {children}

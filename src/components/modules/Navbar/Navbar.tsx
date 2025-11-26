@@ -1,18 +1,17 @@
-import Text from "../../elements/Text/Text";
-import { StyledList, StyledListItem } from "./Navbar.components";
+import { Link } from "react-router";
+
+import { StyledList } from "./Navbar.components";
+import { useContext } from "react";
+import { ThemeContext } from "../../../App";
 
 export const Navbar = () => {
-  const navItems = ["Main Page", "Categories", "All products", "All sales"];
-
+  const { isDark } = useContext(ThemeContext);
   return (
-    <StyledList>
-      {navItems.map((item) => (
-        <StyledListItem key={item}>
-          <Text variant="navLinkText20" weight="medium" className="list-item">
-            {item}
-          </Text>
-        </StyledListItem>
-      ))}
+    <StyledList $isDark={isDark}>
+      <Link to="/garden-shop">Main Page</Link>
+      <Link to="/garden-shop/categories">Categories</Link>
+      <Link to="/garden-shop/products">All products</Link>
+      <Link to="/garden-shop/sale">All sales</Link>
     </StyledList>
   );
 };

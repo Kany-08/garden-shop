@@ -1,5 +1,4 @@
-import type { JSX } from "react";
-import type { CartItemProps } from "./CartItem.types";
+import { useContext, type JSX } from "react";
 import {
   StyledBodyContainer,
   StyledCartItemContainer,
@@ -13,38 +12,77 @@ import Image from "../../elements/Image/Image";
 import Text from "../../elements/Text/Text";
 import { Icon } from "../../elements/Icon/Icon";
 import { QuantityCounter } from "../QuantityCounter/QuantityCounter";
+import { useCartContext } from "../../../context/CartContext";
+import { ThemeContext } from "../../../App";
+
+import type { ProductCardProps } from "../ProductCard/ProductCard.types";
+
+type CartItemProps = {
+  product: ProductCardProps;
+  quantity: number;
+};
 
 export const CartItem = ({
-  title,
-  price,
-  oldPrice,
-  imageUrl,
-}: CartItemProps): JSX.Element => {
+  product,
+  quantity,
+}: CartItemProps): JSX.Element | null => {
+  const { increaseCartQuantity, decreaseCartQuantity, removeFromCart } =
+    useCartContext();
+  const { isDark } = useContext(ThemeContext);
+
   return (
-    <StyledCartItemContainer>
+    <StyledCartItemContainer $isDark={isDark}>
       <StyledImageContainer>
-        <Image src={imageUrl} alt={title} objectFit="cover" />
+        <Image
+          src={`http://localhost:3333/${product.image}`}
+          alt={product.title ?? ""}
+          objectFit="cover"
+        />
       </StyledImageContainer>
       <StyledBodyContainer>
         <StyledHeaderContainer>
-          <Text variant="heading20" weight="medium">
-            {title}
+          <Text
+            variant="heading20"
+            weight="medium"
+            color={isDark ? "white" : "black"}
+          >
+            {product.title}
           </Text>
-          <StyledRemoveButton>
-            <Icon name="x" size="small" />
+          <StyledRemoveButton onClick={() => removeFromCart(product.id)}>
+            <Icon name={isDark ? "xwhite" : "x"} size="small" />
           </StyledRemoveButton>
         </StyledHeaderContainer>
 
         <StyledFooterContainer>
-          <QuantityCounter value={1} />
-          <StyledPriceContainer>
-            <Text variant="price40" weight="semiBold">
-              ${price}
-            </Text>
-            <Text variant="oldPrice20" weight="medium" crossedOut>
-              ${oldPrice}
-            </Text>
-          </StyledPriceContainer>
+          <QuantityCounter
+            value={quantity}
+            onIncrease={() => increaseCartQuantity(product.id)}
+            onDecrease={() => decreaseCartQuantity(product.id)}
+          />
+          {product.discont_price ? (
+            <StyledPriceContainer>
+              <Text
+                variant="price40"
+                color={isDark ? "white" : "black"}
+                weight="semiBold"
+              >
+                {"$" + Math.round((product.discont_price ?? 0) * quantity)}
+              </Text>
+              <Text variant="oldPrice20" crossedOut={true}>
+                {"$" + Math.round((product.price ?? 0) * quantity)}
+              </Text>
+            </StyledPriceContainer>
+          ) : (
+            <StyledPriceContainer>
+              <Text
+                variant="price40"
+                color={isDark ? "white" : "black"}
+                weight="semiBold"
+              >
+                {"$" + Math.round((product.price ?? 0) * quantity)}
+              </Text>
+            </StyledPriceContainer>
+          )}
         </StyledFooterContainer>
       </StyledBodyContainer>
     </StyledCartItemContainer>

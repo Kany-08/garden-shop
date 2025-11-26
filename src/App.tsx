@@ -1,38 +1,84 @@
-import { Footer } from "./components/sections/Footer/Footer";
-import { Header } from "./components/sections/Header/Header";
-// import CartItem from "./components/modules/CartItem/CartItem";
-// import { CategoryCard } from "./components/modules/CategoryCard/CategoryCard";
-// import CheckboxDiscount from "./components/modules/CheckboxDiscount/CheckboxDiscount";
-// import { PriceRange } from "./components/modules/PriceRange/PriceRange";
-// import ProductCard from "./components/modules/ProductCard/ProductCard";
-// import { SortSelect } from "./components/modules/SortSelect/SortSelect";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Layout from "./components/templates/Layout";
+import Products from "./pages/Products";
+import Categories from "./pages/Categories";
+import Home from "./pages/Home";
+import Sale from "./pages/Sale";
+import ShoppingCart from "./pages/ShoppingCart";
+import BreadcrumbsLayout from "./components/templates/BreadcrumbsLayout";
+import CategoriesProducts from "./pages/CategoriesProducts";
+import ProductDetail from "./pages/ProductDetail";
+import { GlobalStyle } from "./styles/GlobalStyle";
+import { createContext, useState } from "react";
+import { CartProvider } from "./context/CartContext";
+import LikedProductsProvider from "./context/LikeProductsContext";
+import LikedProducts from "./pages/LikedProducts";
+import CheckboxProvider from "./context/CheckboxContext";
+import NotFound from "./pages/NotFound";
+
+export type ThemeContext = {
+  toggle: () => void;
+  isDark: boolean;
+};
+
+export const ThemeContext = createContext({} as ThemeContext);
 
 function App() {
+  const [isDark, setIsDark] = useState(false);
+
+  const toggle = () => {
+    setIsDark((prev) => !prev);
+  };
   return (
-    <div className="app">
-      {/* <ProductCard
-        title="Flower basket"
-        price={450}
-        oldPrice={600}
-        salePercent={17}
-        imageUrl=""
-      />
+    <>
+      <ThemeContext.Provider value={{ isDark, toggle }}>
+        <GlobalStyle $isDark={isDark} />
+        <BrowserRouter>
+          <CartProvider>
+            <LikedProductsProvider>
+              <CheckboxProvider>
+                <Routes>
+                  <Route element={<Layout />}>
+                    <Route path="/garden-shop" element={<Home />} />
 
-      <CategoryCard title="Fertilizer" imageUrl="https://picsum.photos/200" /> */}
+                    <Route element={<BreadcrumbsLayout />}>
+                      <Route
+                        path="/garden-shop/categories"
+                        element={<Categories />}
+                      />
+                      <Route
+                        path="/garden-shop/categories/:id"
+                        element={<CategoriesProducts />}
+                      />
+                      <Route
+                        path="/garden-shop/products"
+                        element={<Products />}
+                      />
+                      <Route
+                        path="/garden-shop/products/:id"
+                        element={<ProductDetail />}
+                      />
+                      <Route path="/garden-shop/sale" element={<Sale />} />
+                    </Route>
 
-      {/* <CartItem
-        title="Secauters"
-        imageUrl="https://picsum.photos/200"
-        price={155}
-        oldPrice={240}
-      /> */}
+                    <Route
+                      path="/garden-shop/shopping-cart"
+                      element={<ShoppingCart />}
+                    />
 
-      {/* <PriceRange min={20} max={1000} />
-      <CheckboxDiscount />
-      <SortSelect /> */}
-      <Header />
-      <Footer />
-    </div>
+                    <Route
+                      path="/garden-shop/liked-products"
+                      element={<LikedProducts />}
+                    />
+                    <Route path="*" element={<NotFound />} />
+                  </Route>
+                </Routes>
+              </CheckboxProvider>
+            </LikedProductsProvider>
+          </CartProvider>
+        </BrowserRouter>
+      </ThemeContext.Provider>
+    </>
   );
 }
 

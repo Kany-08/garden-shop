@@ -1,6 +1,6 @@
 export type CheckboxDiscountProps = {
   label?: string;
   discount?: number;
-  checked?: boolean;
+  isChecked?: boolean;
   onChange?: (checked: boolean) => void;
 };

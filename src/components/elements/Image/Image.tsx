@@ -20,7 +20,6 @@ const Image = ({
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Обработка ошибки загрузки
   const handleError = () => {
     setHasError(true);
     setIsLoading(false);
@@ -29,7 +28,6 @@ const Image = ({
     }
   };
 
-  // Обработка успешной загрузки
   const handleLoad = () => {
     setIsLoading(false);
     if (onLoad) {

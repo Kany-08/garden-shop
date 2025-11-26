@@ -6,11 +6,13 @@ import Text from "../../elements/Text/Text";
 
 export const QuantityCounter = ({
   value,
+  onIncrease,
+  onDecrease,
 }: QuantytyCounterProps): JSX.Element => {
   return (
     <StyledQuantityContainer>
       <button>
-        <Icon name="minus" size="small" />
+        <Icon name="minus" size="small" onClick={() => onDecrease()} />
       </button>
 
       <Text variant="dicount20" weight="semiBold">
@@ -18,7 +20,7 @@ export const QuantityCounter = ({
       </Text>
 
       <button>
-        <Icon name="plus" size="small" />
+        <Icon name="plus" size="small" onClick={() => onIncrease()} />
       </button>
     </StyledQuantityContainer>
   );

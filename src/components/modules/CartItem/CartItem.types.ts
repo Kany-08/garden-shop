@@ -1,11 +1,17 @@
 export type CartItemProps = {
-  id?: string;
-  title: string;
+  id: number;
+  quantity: number;
   price: number;
-  oldPrice?: number;
-  imageUrl: string;
-  count?: number;
-  onRemove?: () => void;
-  onMinus?: () => void;
-  onPlus?: () => void;
+  discont_price: number;
+  title: string;
+  image: string;
+  // title: string;
+  // price: number;
+  // discount_price?: number | null;
+  // imageUrl: string;
+  // quantity: number;
+  // count?: number;
+  // onRemove?: () => void;
+  // onMinus?: () => void;
+  // onPlus?: () => void;
 };

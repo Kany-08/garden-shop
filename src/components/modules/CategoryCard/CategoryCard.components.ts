@@ -3,8 +3,6 @@ import styled from "@emotion/styled";
 import { theme } from "../../../styles/theme";
 
 export const StyledCardContainer = styled.div`
-  background-color: ${theme.colors.white};
-
   display: flex;
   flex-direction: column;
   overflow: hidden;

@@ -1,7 +1,7 @@
 export type CategoryCardProps = {
-  id?: string;
+  id: number;
   title: string;
-  imageUrl: string;
+  image: string;
   onClick?: () => void;
   className?: string;
 };

@@ -7,6 +7,7 @@ export const StyledButton = styled.button<ButtonProps>`
   /* Base */
   background-color: ${theme.colors.green};
   color: ${theme.colors.white};
+  border: none;
   border-radius: ${theme.sizes.radius.sm};
   font-size: ${theme.fonts.size.default};
   font-weight: ${theme.fonts.weight.semiBold};
@@ -62,12 +63,16 @@ export const StyledButton = styled.button<ButtonProps>`
   ${({ size }) =>
     size === "medium" &&
     css`
-      padding: 0.8em 5em;
+      padding: 1em 3.5em;
+      font-size: ${theme.fonts.size.lg};
+      font-weight: ${theme.fonts.weight.semiBold};
     `}
 
   ${({ size }) =>
     size === "large" &&
     css`
       padding: 0.8em 9em;
+      font-size: ${theme.fonts.size.lg};
+      font-weight: ${theme.fonts.weight.semiBold};
     `}
 `;

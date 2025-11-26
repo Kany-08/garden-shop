@@ -1,7 +1,43 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 1440px;
+  margin: 0 auto;
+  color: 424436;
+  background-color: #fffff1;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app {
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: 1000px) {
+    padding: 0 20px;
+  }
 }

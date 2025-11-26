@@ -1,15 +1,21 @@
-import type { JSX } from "react";
+import { useContext, type JSX } from "react";
 import { StyledFooter, StyledMap } from "./Footer.components";
 import Text from "../../elements/Text/Text";
 
 import { Icon } from "../../elements/Icon/Icon";
 import map from "../../../assets/map.svg";
 import { IconWrapper } from "../../elements/Select/Select.components";
+import { ThemeContext } from "../../../App";
 
 export const Footer = (): JSX.Element => {
+  const { isDark } = useContext(ThemeContext);
   return (
-    <StyledFooter>
-      <Text variant="heading64" weight="bold">
+    <StyledFooter $isDark={isDark}>
+      <Text
+        variant="heading64"
+        weight="bold"
+        color={isDark ? "white" : "black"}
+      >
         Contacts
       </Text>
       <div className="container">
@@ -27,8 +33,14 @@ export const Footer = (): JSX.Element => {
             Socials
           </Text>
           <IconWrapper className="icon-wrapper">
-            <Icon name="instagram" size="social" />
-            <Icon name="whatsupp" size="social" />
+            <Icon
+              name={isDark ? "instagramDarkmode" : "instagram"}
+              size="social"
+            />
+            <Icon
+              name={isDark ? "whatsuppDarkmode" : "whatsupp"}
+              size="social"
+            />
           </IconWrapper>
         </div>
 

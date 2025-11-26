@@ -1,10 +1,16 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Select from "../../elements/Select/Select";
 import Text from "../../elements/Text/Text";
 import { StyledSortSelect } from "./SortSelect.components";
+import { ThemeContext } from "../../../App";
 
-export const SortSelect = () => {
-  const [sortValue, setSortValue] = useState("default");
+interface SortSelectProps {
+  value: string;
+  onChange: (v: string) => void;
+}
+
+export const SortSelect = ({ value, onChange }: SortSelectProps) => {
+  const { isDark } = useContext(ThemeContext);
 
   const sortOptions = [
     { value: "default", label: "by default" },
@@ -15,14 +21,14 @@ export const SortSelect = () => {
   return (
     <StyledSortSelect>
       <label>
-        <Text variant="heading20" weight="semiBold">
+        <Text
+          variant="heading20"
+          weight="semiBold"
+          color={isDark ? "white" : "black"}
+        >
           Sorted
         </Text>
-        <Select
-          value={sortValue}
-          onChange={setSortValue}
-          options={sortOptions}
-        />
+        <Select value={value} onChange={onChange} options={sortOptions} />
       </label>
     </StyledSortSelect>
   );

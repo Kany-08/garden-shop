@@ -5,4 +5,6 @@ export type QuantytyCounterProps = {
   max?: number;
   step?: number;
   disabled?: boolean;
+  onIncrease: () => void;
+  onDecrease: () => void;
 };

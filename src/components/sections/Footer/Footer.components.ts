@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
+import { css } from "styled-components";
 
-export const StyledFooter = styled.footer`
+export const StyledFooter = styled.footer<{ $isDark: boolean }>`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 5em 2.5em;
 
   .container {
     display: flex;
@@ -22,6 +24,16 @@ export const StyledFooter = styled.footer`
     padding: 24px 20px;
 
     border-radius: ${theme.sizes.radius.medium};
+
+    ${({ $isDark }) =>
+      $isDark &&
+      css`
+        background-color: ${theme.colors.darkgreen};
+
+        h3 {
+          color: ${theme.colors.white};
+        }
+      `}
   }
 
   .container > div:nth-child(2) {

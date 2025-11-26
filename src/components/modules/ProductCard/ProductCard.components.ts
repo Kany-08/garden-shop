@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-// import { css } from "@emotion/react";
+import { css } from "@emotion/react";
 import { theme } from "../../../styles/theme";
 
-export const StyledCardContainer = styled.div`
+export const StyledCardContainer = styled.div<{ $isDark?: boolean }>`
   position: relative;
   background-color: ${theme.colors.white};
   border-radius: ${theme.sizes.radius.medium};
@@ -13,6 +13,12 @@ export const StyledCardContainer = styled.div`
   width: 316px;
   height: 422px;
   cursor: pointer;
+
+  ${({ $isDark }) =>
+    $isDark &&
+    css`
+      background-color: ${theme.colors.darkgreen};
+    `}
 `;
 
 export const StyledImageContainer = styled.div`

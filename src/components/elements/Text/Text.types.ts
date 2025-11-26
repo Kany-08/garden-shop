@@ -29,4 +29,5 @@ export interface TextProps {
   crossedOut?: boolean;
   children: React.ReactNode;
   className?: string;
+  nowrap?: boolean;
 }

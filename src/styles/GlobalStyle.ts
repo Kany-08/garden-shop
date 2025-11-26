@@ -1,7 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import { theme } from "./theme";
+import { css } from "styled-components";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ $isDark: boolean }>`
   *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -9,32 +10,64 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: ${theme.fonts.family};;
-    color: ${theme.colors.black};
-    /* line-height: 1.5; */
-    max-width: 1440px;
-    margin: 0 auto;
-  }
+  font-family: ${theme.fonts.family};
+  font-size: ${theme.fonts.size.default};
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: ${theme.sizes.breakpoints.Desktop}px;
+  margin: 0 auto;
+  color: ${theme.colors.black};
+  background-color: ${theme.colors.bgWhite};
 
-  button {
-    font-family: inherit;
-    border: none;
+  ${({ $isDark }) =>
+    $isDark &&
+    css`
+      background-color: ${theme.colors.black};
+      color: ${theme.colors.white};
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      span,
+      a,
+      li,
+      button {
+        color: ${theme.colors.white};
+      }
+    `}
+
+  
+}
+
+button {
+  font-family: inherit;
+  border: none;
   outline: none;
   cursor: pointer;
   padding: 0;
   text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app {
+  padding: 0 2.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @media (max-width: ${theme.sizes.breakpoints.smDesktop}px) {
+    padding: 0 1.5em;
   }
 
-  .app {
-    padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-    padding-bottom: 80px;
+  
+}
 
-    @media (max-width: 1000px) {
-      padding: 0 20px;
-    }
-  }
 `;

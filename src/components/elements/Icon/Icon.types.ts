@@ -15,10 +15,14 @@ import LightMode from "../../../assets/icons/mode/mode=light.svg?react";
 //nav
 import Like from "../../../assets/icons/nav/basket=like.svg?react";
 import Basket from "../../../assets/icons/nav/basket=empty.svg?react";
+import BasketDarkmode from "../../../assets/icons/nav/basket=empty=darkmode.svg?react";
+import LikeDarkmode from "../../../assets/icons/nav/basket=like-darkmode.svg?react";
 
 //socMedia
 import WhatsUpp from "../../../assets/icons/socia-media/whatsup.svg?react";
 import Instagram from "../../../assets/icons/socia-media/instagram.svg?react";
+import InstagramDarkmode from "../../../assets/icons/socia-media/instagram=darkmode.svg?react";
+import WhatsUppDarkmode from "../../../assets/icons/socia-media/whatsapp=darkmode.svg?react";
 
 //other
 import X from "../../../assets/icons/x.svg?react";
@@ -26,6 +30,7 @@ import Xwhite from "../../../assets/icons/x-white.svg?react";
 import Minus from "../../../assets/icons/minus.svg?react";
 import Plus from "../../../assets/icons/plus.svg?react";
 import Menu from "../../../assets/icons/menu.svg?react";
+import XTagon from "../../../assets/icons/x-octagon.svg?react";
 
 //arrow
 import ArrowUp from "../../../assets/icons/arrow-up.svg?react";
@@ -38,12 +43,16 @@ export const iconMap = {
   heartEmpty: HeartEmpty,
   heartHover: HeartHover,
   heartLiked: HeartLiked,
+  basketDarkmode: BasketDarkmode,
+  likeDarkmode: LikeDarkmode,
   darkMode: DarkMode,
   lightMode: LightMode,
   like: Like,
   basket: Basket,
   whatsupp: WhatsUpp,
   instagram: Instagram,
+  instagramDarkmode: InstagramDarkmode,
+  whatsuppDarkmode: WhatsUppDarkmode,
   x: X,
   xwhite: Xwhite,
   minus: Minus,
@@ -51,6 +60,7 @@ export const iconMap = {
   menu: Menu,
   arrowUp: ArrowUp,
   arrowDown: ArrowDown,
+  xTagon: XTagon,
 } as const;
 
 export type IconName = keyof typeof iconMap;

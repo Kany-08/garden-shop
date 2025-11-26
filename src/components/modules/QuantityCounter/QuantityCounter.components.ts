@@ -12,6 +12,7 @@ export const StyledQuantityContainer = styled.div`
   overflow: hidden;
   border-radius: ${theme.sizes.radius.sm};
   text-align: center;
+  background-color: ${theme.colors.white};
 
   button {
     background: ${theme.colors.white};

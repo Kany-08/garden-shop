@@ -9,6 +9,7 @@ interface StyledTextProps {
   $weight: Weight;
   $truncate: boolean;
   $crossedOut?: boolean;
+  $nowrap?: boolean;
 }
 
 const getVariantStyles = (variant: Variant) => {
@@ -136,5 +137,11 @@ export const StyledText = styled.span<StyledTextProps>`
     `
     text-decoration: line-through;
     color: ${theme.colors.grey};
+  `}
+
+  ${({ $nowrap }) =>
+    $nowrap &&
+    `
+    text-wrap: nowrap;
   `}
 `;

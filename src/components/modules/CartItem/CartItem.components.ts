@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
-// import { css } from "@emotion/react";
+import { css } from "@emotion/react";
 import { theme } from "../../../styles/theme";
 
-export const StyledCartItemContainer = styled.div`
+export const StyledCartItemContainer = styled.div<{ $isDark: boolean }>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -12,6 +12,12 @@ export const StyledCartItemContainer = styled.div`
   border-radius: ${theme.sizes.radius.medium};
   background-color: ${theme.colors.white};
   overflow: hidden;
+
+  ${({ $isDark }) =>
+    $isDark &&
+    css`
+      background-color: ${theme.colors.darkgreen};
+    `}
 `;
 
 export const StyledImageContainer = styled.div`

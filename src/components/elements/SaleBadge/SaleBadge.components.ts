@@ -5,7 +5,7 @@ import { theme } from "../../../styles/theme";
 export const StyledSaleBadge = styled.span`
   font-weight: ${theme.fonts.weight.semiBold};
   color: ${theme.colors.white};
-  position: absolute;
+  /* position: absolute; */
   z-index: 1;
 
   background-color: ${theme.colors.sale};

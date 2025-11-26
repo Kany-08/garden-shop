@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 
-export const StyledList = styled.ul`
+export const StyledList = styled.nav<{ $isDark: boolean }>`
   list-style: none;
   display: flex;
   align-items: center;
@@ -10,53 +10,55 @@ export const StyledList = styled.ul`
   padding: 0;
   margin: 0;
 
+  a {
+    font-family: ${theme.fonts.family};
+    text-decoration: none;
+    font-size: ${theme.fonts.size.lg};
+    font-weight: ${theme.fonts.weight.medium};
+    cursor: pointer;
+    transition: color 0.3s;
+    color: ${theme.colors.black};
+
+    &:hover {
+      color: ${theme.colors.green};
+    }
+
+    ${({ $isDark }) =>
+      $isDark &&
+      `
+      color: ${theme.colors.white};
+      &:hover {
+        color: ${theme.colors.green};
+      }
+    `}
+  }
+
   @media (max-width: 1000px) {
     gap: 24px;
   }
 
   @media (max-width: 768px) {
     gap: 20px;
+
+    a {
+      font-size: ${theme.fonts.size.default};
+    }
   }
 
   @media (max-width: 480px) {
     flex-direction: column;
     gap: 36px;
     align-items: flex-start;
-  }
 
-  @media (max-width: 360px) {
-    gap: 32px;
-  }
-`;
-
-export const StyledListItem = styled.li`
-  font-family: inherit;
-  cursor: pointer;
-  transition: color 0.3s;
-
-  .list-item {
-    text-decoration: none;
-    color: inherit;
-
-    &:hover {
-      color: ${theme.colors.green};
-    }
-  }
-
-  @media (max-width: 768px) {
-    .list-item {
-      font-size: ${theme.fonts.size.default};
-    }
-  }
-
-  @media (max-width: 480px) {
-    .list-item {
+    a {
       font-size: ${theme.fonts.size.xl};
     }
   }
 
   @media (max-width: 360px) {
-    .list-item {
+    gap: 32px;
+
+    a {
       font-size: ${theme.fonts.size.normal};
     }
   }

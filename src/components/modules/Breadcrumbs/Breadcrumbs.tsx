@@ -1,51 +1,60 @@
 // import { Link } from "@mui/material";
-import { Link } from "@mui/material";
+
+import { Link, useLocation } from "react-router";
 import {
   StyledBreadcrumbs,
   StyledBreadcrumbsContainer,
 } from "./Breadcrumbs.components";
 import type { BreadcrumbsProps } from "./Breadcrumbs.types";
+import { useContext } from "react";
+import { ThemeContext } from "../../../App";
 
 export const BreadCrumbs = ({}: BreadcrumbsProps) => {
-  function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-    event.preventDefault();
-    console.info("You clicked a breadcrumb.");
-  }
+  const location = useLocation();
+  const { isDark } = useContext(ThemeContext);
 
-  const breadcrumbs = [
-    <Link
-      key="1"
-      color="inherit"
-      href="/"
-      onClick={handleClick}
-      underline="none"
-    >
-      Main page
-    </Link>,
-    <Link
-      key="2"
-      color="inherit"
-      href="/material-ui/getting-started/installation/"
-      onClick={handleClick}
-      underline="none"
-    >
-      Categories
-    </Link>,
-
-    <Link
-      key="2"
-      color="text.primary"
-      href="/material-ui/getting-started/installation/"
-      onClick={handleClick}
-      aria-current="page"
-      underline="none"
-    >
-      Tools and equipment
-    </Link>,
-  ];
   return (
     <StyledBreadcrumbsContainer>
-      <StyledBreadcrumbs separator="">{breadcrumbs}</StyledBreadcrumbs>
+      <StyledBreadcrumbs separator="" isdark={isDark}>
+        <Link to="/garden-shop">Main page</Link>
+        {location.pathname === "/garden-shop/categories" && (
+          <Link
+            to="/garden-shop/categories"
+            className={
+              location.pathname.includes("/categories") ? "active" : ""
+            }
+          >
+            Categories
+          </Link>
+        )}
+
+        {location.pathname === "/garden-shop/categories/" && (
+          <Link
+            to="/garden-shop/categories/"
+            className={
+              location.pathname.includes("/categories") ? "active" : ""
+            }
+          >
+            {}
+          </Link>
+        )}
+        {location.pathname === "/garden-shop/products" && (
+          <Link
+            to="/garden-shop/products"
+            className={location.pathname.includes("/products") ? "active" : ""}
+          >
+            All products
+          </Link>
+        )}
+        {location.pathname === "/garden-shop/sale" && (
+          <Link
+            to="/garden-shop/sale"
+            className={location.pathname.includes("/sale") ? "active" : ""}
+          >
+            Sale
+          </Link>
+        )}
+      </StyledBreadcrumbs>
     </StyledBreadcrumbsContainer>
   );
 };
