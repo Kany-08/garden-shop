@@ -12,10 +12,5 @@ export default defineConfig({
       },
     }),
   ],
-  base: "/garden-shop",
-  server: {
-    proxy: {
-      api: "http://localhost:3333",
-    },
-  },
+  base: "./",
 });
