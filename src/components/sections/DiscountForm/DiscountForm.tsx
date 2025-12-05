@@ -3,6 +3,7 @@ import { Body, DiscountFormContainer } from "./DiscountForm.components";
 import hands from "../../../assets/hands.svg";
 import Form from "../../modules/Form/Form";
 import { PaddingContainer } from "../../../pages/PagesStyles.components";
+import { API_URL } from "../../../config";
 
 const DiscountForm = () => {
   return (
@@ -19,7 +20,7 @@ const DiscountForm = () => {
             }}
           >
             <Form
-              url="http://localhost:3333/sale/send"
+              url={`${API_URL}/sale/send`}
               btn="Get Discount"
               variant="sale"
               btnVariant="secondary"

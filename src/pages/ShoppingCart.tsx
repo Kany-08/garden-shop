@@ -16,6 +16,7 @@ import Button from "../components/elements/Button/Button";
 import Form from "../components/modules/Form/Form";
 import { useContext } from "react";
 import { ThemeContext } from "../App";
+import { API_URL } from "../config";
 
 const ShoppingCart = () => {
   const { isDark } = useContext(ThemeContext);
@@ -80,7 +81,7 @@ const ShoppingCart = () => {
             </div>
             <div style={{ width: "484px" }}>
               <Form
-                url="http://localhost:3333/order/send"
+                url={`${API_URL}/order/send`}
                 variant="order"
                 btn="order"
                 btnVariant="primary"

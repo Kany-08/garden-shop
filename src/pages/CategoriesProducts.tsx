@@ -15,6 +15,7 @@ import CheckboxDiscount from "../components/modules/CheckboxDiscount/CheckboxDis
 import { SortSelect } from "../components/modules/SortSelect/SortSelect";
 import { ThemeContext } from "../App";
 import { useCheckboxContext } from "../context/CheckboxContext";
+import { API_URL } from "../config";
 
 const CategoriesProducts = () => {
   const { isCheckboxed } = useCheckboxContext();
@@ -28,7 +29,7 @@ const CategoriesProducts = () => {
   const { isDark } = useContext(ThemeContext);
   useEffect(() => {
     if (!id) return;
-    fetch(`http://localhost:3333/categories/${id}`)
+    fetch(`${API_URL}/categories/${id}`)
       .then((resp) => resp.json())
       .then((data) => {
         console.log(data);

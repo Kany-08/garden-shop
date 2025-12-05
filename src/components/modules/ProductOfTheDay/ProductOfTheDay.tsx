@@ -18,6 +18,7 @@ import {
 } from "./ProductOfTheDay.components";
 import Button from "../../elements/Button/Button";
 import type { JSX } from "react";
+import { API_URL } from "../../../config";
 
 const ProductOfTheDay = (props: ProductCardProps): JSX.Element => {
   const { onAddToCart } = useCartContext();
@@ -29,7 +30,7 @@ const ProductOfTheDay = (props: ProductCardProps): JSX.Element => {
       <StyledCardContainer>
         <StyledImageContainer>
           <Image
-            src={`http://localhost:3333/${props.image}`}
+            src={`${API_URL}/${props.image}`}
             alt={props.title}
             objectFit="cover"
           />

@@ -14,13 +14,14 @@ import { PriceRange } from "../components/modules/PriceRange/PriceRange";
 import { SortSelect } from "../components/modules/SortSelect/SortSelect";
 import useFetch from "../hooks/useFetch";
 import { useLikedProductsContext } from "../context/LikeProductsContext";
+import { API_URL } from "../config";
 
 const LikedProducts = () => {
   const { likedProducts } = useLikedProductsContext();
   const { isDark } = useContext(ThemeContext);
 
   const { data, loading, error } = useFetch<ProductCardProps[]>(
-    "http://localhost:3333/products/all"
+    `${API_URL}/products/all`
   );
   const [range, setRange] = useState({ min: 0, max: 1000 });
   const [sortValue, setSortValue] = useState("default");

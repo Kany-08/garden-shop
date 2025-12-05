@@ -18,6 +18,7 @@ import { useCartContext } from "../context/CartContext";
 import Button from "../components/elements/Button/Button";
 import { useContext } from "react";
 import { ThemeContext } from "../App";
+import { API_URL } from "../config";
 
 export const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -29,7 +30,7 @@ export const ProductDetail = () => {
     onAddToCart,
   } = useCartContext();
   const { data, loading, error } = useFetch<ProductCardProps>(
-    `http://localhost:3333/products/${id}`
+    `${API_URL}/products/${id}`
   );
 
   if (loading)
@@ -42,7 +43,7 @@ export const ProductDetail = () => {
         <ProductDetailContainer>
           <ProductDetailImage>
             <Image
-              src={`http://localhost:3333/${data.image}`}
+              src={`${API_URL}/${data.image}`}
               alt={data.title}
               objectFit="cover"
             />

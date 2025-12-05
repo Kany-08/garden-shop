@@ -23,6 +23,7 @@ import useFetch from "../../../hooks/useFetch";
 import type { ProductCardProps } from "../../modules/ProductCard/ProductCard.types";
 
 import ProductOfTheDay from "../../modules/ProductOfTheDay/ProductOfTheDay";
+import { API_URL } from "../../../config";
 
 export const Header = (): JSX.Element | null => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,9 +33,7 @@ export const Header = (): JSX.Element | null => {
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const [showPopUp, setShowPopUp] = useState(false);
 
-  const { data } = useFetch<ProductCardProps[]>(
-    "http://localhost:3333/products/all"
-  );
+  const { data } = useFetch<ProductCardProps[]>(`${API_URL}/products/all`);
 
   const [productOfTheDay, setProductOfTheDay] =
     useState<ProductCardProps | null>(null);

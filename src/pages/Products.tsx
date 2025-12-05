@@ -13,12 +13,13 @@ import CheckboxDiscount from "../components/modules/CheckboxDiscount/CheckboxDis
 import { SortSelect } from "../components/modules/SortSelect/SortSelect";
 import useFetch from "../hooks/useFetch";
 import { useCheckboxContext } from "../context/CheckboxContext";
+import { API_URL } from "../config";
 
 export const Products = () => {
   const { isDark } = useContext(ThemeContext);
   const { isCheckboxed } = useCheckboxContext();
   const { data, loading, error } = useFetch<ProductCardProps[]>(
-    "http://localhost:3333/products/all"
+    `${API_URL}/products/all`
   );
   const [range, setRange] = useState({ min: 0, max: 1000 });
   const [sortValue, setSortValue] = useState("default");

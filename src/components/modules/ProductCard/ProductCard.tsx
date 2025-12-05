@@ -17,6 +17,7 @@ import SalePercentageProvider from "../../../context/SalePercentageContext";
 import { ThemeContext } from "../../../App";
 import { useLikedProductsContext } from "../../../context/LikeProductsContext";
 import { Link } from "react-router";
+import { API_URL } from "../../../config";
 
 export const ProductCard = (props: ProductCardProps): JSX.Element => {
   const { onAddToCart, cartItems } = useCartContext();
@@ -31,7 +32,7 @@ export const ProductCard = (props: ProductCardProps): JSX.Element => {
     <StyledCardContainer $isDark={isDark}>
       <StyledImageContainer>
         <Image
-          src={`http://localhost:3333/${props.image}`}
+          src={`${API_URL}/${props.image}`}
           alt={props.title}
           objectFit="cover"
         />

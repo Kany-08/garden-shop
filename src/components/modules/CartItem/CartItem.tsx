@@ -16,6 +16,7 @@ import { useCartContext } from "../../../context/CartContext";
 import { ThemeContext } from "../../../App";
 
 import type { ProductCardProps } from "../ProductCard/ProductCard.types";
+import { API_URL } from "../../../config";
 
 type CartItemProps = {
   product: ProductCardProps;
@@ -34,7 +35,7 @@ export const CartItem = ({
     <StyledCartItemContainer $isDark={isDark}>
       <StyledImageContainer>
         <Image
-          src={`http://localhost:3333/${product.image}`}
+          src={`${API_URL}/${product.image}`}
           alt={product.title ?? ""}
           objectFit="cover"
         />

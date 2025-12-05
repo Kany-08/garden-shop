@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router";
 import { ThemeContext } from "../App";
 import useFetch from "../hooks/useFetch";
+import { API_URL } from "../config";
 
 export type LimitProps = {
   limit?: number;
@@ -20,7 +21,7 @@ export type LimitProps = {
 export const Categories = ({ limit }: LimitProps) => {
   const { isDark } = useContext(ThemeContext);
   const { data, loading, error } = useFetch<CategoryCardProps[]>(
-    "http://localhost:3333/categories/all"
+    `${API_URL}/categories/all`
   );
 
   if (loading)
@@ -55,7 +56,7 @@ export const Categories = ({ limit }: LimitProps) => {
               <CategoryCard
                 id={item.id}
                 title={item.title}
-                image={`http://localhost:3333/${item.image}`}
+                image={`${API_URL}/${item.image}`}
               />
             </Link>
           );
