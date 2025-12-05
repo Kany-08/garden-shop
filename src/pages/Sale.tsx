@@ -65,7 +65,7 @@ export const Sale = ({ limit }: LimitProps) => {
         {limit && (
           <LineWrapper>
             <Line />
-            <Link to="/garden-shop/categories">All sales</Link>
+            <Link to="/categories">All sales</Link>
           </LineWrapper>
         )}
       </HeadingContainer>

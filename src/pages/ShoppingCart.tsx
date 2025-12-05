@@ -44,7 +44,7 @@ const ShoppingCart = () => {
 
         <LineWrapper>
           <Line />
-          <Link to="/garden-shop">Back to the store</Link>
+          <Link to="/">Back to the store</Link>
         </LineWrapper>
       </CartHeaderContainer>
       {cartItems.length > 0 ? (
@@ -94,7 +94,7 @@ const ShoppingCart = () => {
           <Text variant="dicount20" color="black" weight="medium">
             Looks like you have no items in your basket currently.
           </Text>
-          <Link to="/garden-shop">
+          <Link to="/">
             <Button size="medium">Continue Shopping</Button>
           </Link>
         </CartEmptyContainer>

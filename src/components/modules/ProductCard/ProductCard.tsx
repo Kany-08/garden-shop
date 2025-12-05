@@ -62,7 +62,7 @@ export const ProductCard = (props: ProductCardProps): JSX.Element => {
           />
         </IconWrapper>
       </StyledImageContainer>
-      <Link to={`/garden-shop/products/${props.id}`}>
+      <Link to={`/products/${props.id}`}>
         <StyledInfoContainer>
           <Text
             variant="heading20"

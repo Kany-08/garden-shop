@@ -44,7 +44,7 @@ export const Categories = ({ limit }: LimitProps) => {
         {limit && (
           <LineWrapper>
             <Line />
-            <Link to="/garden-shop/categories">All categories</Link>
+            <Link to="/categories">All categories</Link>
           </LineWrapper>
         )}
       </HeadingContainer>
@@ -52,7 +52,7 @@ export const Categories = ({ limit }: LimitProps) => {
       <CardsContainer>
         {visibleCategories.map((item) => {
           return (
-            <Link key={item.id} to={`/garden-shop/categories/${item.id}`}>
+            <Link key={item.id} to={`/categories/${item.id}`}>
               <CategoryCard
                 id={item.id}
                 title={item.title}

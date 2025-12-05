@@ -8,10 +8,10 @@ export const Navbar = () => {
   const { isDark } = useContext(ThemeContext);
   return (
     <StyledList $isDark={isDark}>
-      <Link to="/garden-shop">Main Page</Link>
-      <Link to="/garden-shop/categories">Categories</Link>
-      <Link to="/garden-shop/products">All products</Link>
-      <Link to="/garden-shop/sale">All sales</Link>
+      <Link to="/">Main Page</Link>
+      <Link to="/categories">Categories</Link>
+      <Link to="/products">All products</Link>
+      <Link to="/sale">All sales</Link>
     </StyledList>
   );
 };

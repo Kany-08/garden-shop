@@ -16,10 +16,10 @@ export const BreadCrumbs = ({}: BreadcrumbsProps) => {
   return (
     <StyledBreadcrumbsContainer>
       <StyledBreadcrumbs separator="" isdark={isDark}>
-        <Link to="/garden-shop">Main page</Link>
-        {location.pathname === "/garden-shop/categories" && (
+        <Link to="/">Main page</Link>
+        {location.pathname === "/categories" && (
           <Link
-            to="/garden-shop/categories"
+            to="/categories"
             className={
               location.pathname.includes("/categories") ? "active" : ""
             }
@@ -28,9 +28,9 @@ export const BreadCrumbs = ({}: BreadcrumbsProps) => {
           </Link>
         )}
 
-        {location.pathname === "/garden-shop/categories/" && (
+        {location.pathname === "/categories/" && (
           <Link
-            to="/garden-shop/categories/"
+            to="/categories/"
             className={
               location.pathname.includes("/categories") ? "active" : ""
             }
@@ -38,17 +38,17 @@ export const BreadCrumbs = ({}: BreadcrumbsProps) => {
             {}
           </Link>
         )}
-        {location.pathname === "/garden-shop/products" && (
+        {location.pathname === "/products" && (
           <Link
-            to="/garden-shop/products"
+            to="/products"
             className={location.pathname.includes("/products") ? "active" : ""}
           >
             All products
           </Link>
         )}
-        {location.pathname === "/garden-shop/sale" && (
+        {location.pathname === "/sale" && (
           <Link
-            to="/garden-shop/sale"
+            to="/sale"
             className={location.pathname.includes("/sale") ? "active" : ""}
           >
             Sale

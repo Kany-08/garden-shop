@@ -16,7 +16,7 @@ const NotFound = () => {
         We’re sorry, the page you requested could not be found. <br />
         Please go back to the homepage.
       </p>
-      <Link to="/garden-shop">
+      <Link to="/">
         <Button variant="primary" size="medium">
           Go Home
         </Button>

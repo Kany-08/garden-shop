@@ -82,7 +82,7 @@ export const Header = (): JSX.Element | null => {
       <StyledHeader>
         <StyledLeftContainer>
           <div className="logo-bg">
-            <Link to="/garden-shop">
+            <Link to="/">
               <img className="logo" src={logo} alt="logo" />
             </Link>
           </div>
@@ -109,7 +109,7 @@ export const Header = (): JSX.Element | null => {
         </StyledCenterContainer>
 
         <StyledRightContainer>
-          <Link to="/garden-shop/liked-products">
+          <Link to="/liked-products">
             <button>
               <Icon name={isDark ? "likeDarkmode" : "like"} />
               {likesQuantity > 0 && (
@@ -117,7 +117,7 @@ export const Header = (): JSX.Element | null => {
               )}
             </button>
           </Link>
-          <Link to="/garden-shop/shopping-cart">
+          <Link to="/shopping-cart">
             <button>
               <Icon name={isDark ? "basketDarkmode" : "basket"} />
               {cartQuantity > 0 && <div className="badge">{cartQuantity}</div>}
