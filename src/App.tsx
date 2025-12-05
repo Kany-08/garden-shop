@@ -39,37 +39,22 @@ function App() {
               <CheckboxProvider>
                 <Routes>
                   <Route element={<Layout />}>
-                    <Route path="/garden-shop" element={<Home />} />
+                    <Route path="/" element={<Home />} />
 
                     <Route element={<BreadcrumbsLayout />}>
+                      <Route path="/categories" element={<Categories />} />
                       <Route
-                        path="/garden-shop/categories"
-                        element={<Categories />}
-                      />
-                      <Route
-                        path="/garden-shop/categories/:id"
+                        path="/categories/:id"
                         element={<CategoriesProducts />}
                       />
-                      <Route
-                        path="/garden-shop/products"
-                        element={<Products />}
-                      />
-                      <Route
-                        path="/garden-shop/products/:id"
-                        element={<ProductDetail />}
-                      />
-                      <Route path="/garden-shop/sale" element={<Sale />} />
+                      <Route path="/products" element={<Products />} />
+                      <Route path="/products/:id" element={<ProductDetail />} />
+                      <Route path="/sale" element={<Sale />} />
                     </Route>
 
-                    <Route
-                      path="/garden-shop/shopping-cart"
-                      element={<ShoppingCart />}
-                    />
+                    <Route path="/shopping-cart" element={<ShoppingCart />} />
 
-                    <Route
-                      path="/garden-shop/liked-products"
-                      element={<LikedProducts />}
-                    />
+                    <Route path="/liked-products" element={<LikedProducts />} />
                     <Route path="*" element={<NotFound />} />
                   </Route>
                 </Routes>
