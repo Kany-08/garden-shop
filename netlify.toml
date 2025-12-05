@@ -4,5 +4,5 @@
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/garden-shop"
   status = 200
