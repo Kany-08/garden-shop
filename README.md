@@ -6,8 +6,6 @@
 - [About](#about)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
 - [API Integration](#api-integration)
 
 ## About
