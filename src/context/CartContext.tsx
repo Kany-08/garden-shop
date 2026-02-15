@@ -46,22 +46,6 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     return cartItems.find((item) => item.product.id === id)?.quantity || 0;
   };
 
-  // const increaseCartQuantity = (id: number) => {
-  //   setCartItems((currItems) => {
-  //     if (currItems.find((item) => item.id === id) == null) {
-  //       return [...currItems, { id, quantity: 1 }];
-  //     } else {
-  //       return currItems.map((item) => {
-  //         if (item.id === id) {
-  //           return { ...item, quantity: item.quantity + 1 };
-  //         } else {
-  //           return item;
-  //         }
-  //       });
-  //     }
-  //   });
-  // };
-
   const increaseCartQuantity = (id: number) => {
     setCartItems((currItems) => {
       const existingItem = currItems.find((item) => item.product.id === id);
@@ -74,26 +58,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         );
       }
 
-      // Если товара нет, это не должно происходить при increase
+      // If the product is not available, this should not occur during an increase.
       return currItems;
     });
   };
-
-  // const decreaseCartQuantity = (id: number) => {
-  //   setCartItems((currItems) => {
-  //     if (currItems.find((item) => item.id === id)?.quantity === 1) {
-  //       return currItems.filter((item) => item.id !== id);
-  //     } else {
-  //       return currItems.map((item) => {
-  //         if (item.id === id) {
-  //           return { ...item, quantity: item.quantity - 1 };
-  //         } else {
-  //           return item;
-  //         }
-  //       });
-  //     }
-  //   });
-  // };
 
   const decreaseCartQuantity = (id: number) => {
     setCartItems((currItems) => {
@@ -109,35 +77,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     });
   };
 
-  // const removeFromCart = (id: number) => {
-  //   setCartItems((currItems) => {
-  //     return currItems.filter((item) => item.id !== id);
-  //   });
-  // };
-
   const clearCart = () => setCartItems([]);
 
   console.log("Provider CartContext object:", CartContext);
   console.log("CartProvider mounted");
-
-  // const onAddToCart = (product: ProductCardProps) => {
-  //   setCartItems((currItems) => {
-  //     const existing = currItems.find((item) => item.id === product.id);
-
-  //     if (existing) {
-  //       return currItems;
-  //     }
-
-  //     return [
-  //       ...currItems,
-  //       {
-  //         ...product,
-  //         quantity: 1,
-  //         discont_price: product.discont_price ?? product.price * 0.5,
-  //       },
-  //     ];
-  //   });
-  // };
 
   const removeFromCart = (id: number) => {
     setCartItems((currItems) =>
@@ -151,12 +94,12 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         (item) => item.product.id === product.id
       );
 
-      // Если товар уже в корзине - удаляем его (toggle)
+      // If the item is already in the cart, remove it. (toggle)
       if (existingItem) {
         return currItems.filter((item) => item.product.id !== product.id);
       }
 
-      // Если товара нет - добавляем с quantity: 1
+      // If the product is not available, add it with quantity: 1
       return [...currItems, { product, quantity: 1 }];
     });
   };
