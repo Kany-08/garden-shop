@@ -18,8 +18,7 @@ This is a frontend final project for an online store selling home and garden goo
 - 🔍 Search and filter products
 - 🛒 Shopping cart functionality
 - 📦 Order placement and management
-- 💳 Secure checkout process
-- 📱 Responsive design for mobile and desktop
+- 💳 Сheckout process
 - ⚡ Fast and intuitive user experience
 
 ## 🛠️ Technologies Used
